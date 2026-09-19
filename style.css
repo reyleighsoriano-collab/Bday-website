@@ -1,0 +1,4340 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #0f0f0f;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 30px;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #3b1f2b 0%,
+            #1c1017 45%,
+            #0f0f0f 75%
+        );
+}
+
+/* Soft romantic glow */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background: rgba(201, 107, 124, 0.12);
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    animation: romanticGlow 6s ease-in-out infinite alternate;
+}
+
+/* Floating hearts */
+
+.hero::after {
+    content: "♡  ♥  ♡  ♥  ♡";
+
+    position: absolute;
+
+    top: 10%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: rgba(229, 139, 155, 0.15);
+
+    font-size: 35px;
+
+    letter-spacing: 35px;
+
+    white-space: nowrap;
+
+    animation: floatingHearts 8s ease-in-out infinite;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.hero > * {
+    position: relative;
+    z-index: 2;
+}
+
+.small-text {
+    font-family: Arial, sans-serif;
+
+    color: #d8a7b1;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+
+    animation: fadeDown 1.2s ease forwards;
+}
+
+h1 {
+    font-size: clamp(45px, 8vw, 90px);
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 20px rgba(229, 139, 155, 0.15);
+
+    animation: fadeUp 1.3s ease forwards;
+}
+
+.subtitle {
+    max-width: 600px;
+
+    color: #d5d5d5;
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+
+    animation: fadeUp 1.5s ease forwards;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    background: #c96b7c;
+
+    color: white;
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+
+    font-family: Arial, sans-serif;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation: fadeUp 1.7s ease forwards;
+
+    box-shadow:
+        0 8px 30px rgba(201, 107, 124, 0.25);
+}
+
+button:hover {
+    background: #e58b9b;
+
+    transform: scale(1.07);
+
+    box-shadow:
+        0 10px 35px rgba(229, 139, 155, 0.4);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+/* =========================
+   PAGE TRANSITION
+========================= */
+
+.hero.fade-out {
+    animation: fadeOut 0.7s ease forwards;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes romanticGlow {
+    from {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+@keyframes floatingHearts {
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: translate(-50%, -25px);
+        opacity: 0.35;
+    }
+
+    100% {
+        transform: translate(-50%, 0);
+        opacity: 0.15;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: clamp(42px, 12vw, 65px);
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .hero::after {
+        font-size: 25px;
+        letter-spacing: 15px;
+    }
+
+    button {
+        padding: 14px 26px;
+    }
+}
+```
+/* =========================
+   STORY PAGE
+========================= */
+
+.story-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #3b1f2b 0%,
+            #1c1017 45%,
+            #0f0f0f 80%
+        );
+
+    animation: storyReveal 1.2s ease forwards;
+}
+
+.story-hero {
+    max-width: 700px;
+}
+
+.story-small {
+    font-family: Arial, sans-serif;
+
+    color: #d8a7b1;
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+
+    animation: fadeDown 1s ease forwards;
+}
+
+.story-hero h1 {
+    font-size: clamp(55px, 10vw, 100px);
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.story-hero h1 span {
+    color: #e58b9b;
+
+    text-shadow:
+        0 0 25px rgba(229, 139, 155, 0.3);
+}
+
+.story-text {
+    max-width: 600px;
+
+    margin: 0 auto 35px;
+
+    color: #d5d5d5;
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+    animation: fadeUp 1.5s ease forwards;
+}
+
+.story-hero button {
+    animation: fadeUp 1.8s ease forwards;
+}
+
+
+/* =========================
+   STORY ANIMATION
+========================= */
+
+@keyframes storyReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+/* =========================
+   CHAPTER PAGE
+========================= */
+
+.chapter-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #42212f 0%,
+            #211119 45%,
+            #0f0f0f 80%
+        );
+
+    position: relative;
+    overflow: hidden;
+
+    animation: chapterReveal 1.2s ease forwards;
+}
+
+
+/* Soft background glow */
+
+.chapter-page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: rgba(229, 139, 155, 0.10);
+
+    filter: blur(90px);
+
+    animation: chapterGlow 5s ease-in-out infinite alternate;
+}
+
+
+/* Content */
+
+.chapter {
+    position: relative;
+    z-index: 2;
+
+    max-width: 650px;
+}
+
+
+/* Chapter number */
+
+.chapter-number {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 6px;
+
+    color: #d8a7b1;
+
+    margin-bottom: 30px;
+
+    animation: fadeDown 1s ease forwards;
+}
+
+
+/* Heading */
+
+.chapter h1 {
+    font-size: clamp(55px, 9vw, 95px);
+
+    line-height: 0.95;
+
+    margin-bottom: 25px;
+
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.chapter h1 span {
+    color: #e58b9b;
+
+    text-shadow:
+        0 0 25px rgba(229, 139, 155, 0.35);
+}
+
+
+/* Heart divider */
+
+.heart-line {
+    color: #c96b7c;
+
+    margin-bottom: 30px;
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    animation: heartPulse 2s ease-in-out infinite;
+}
+
+
+/* Story text */
+
+.chapter p {
+    font-family: Arial, sans-serif;
+
+    color: #d8d8d8;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+    margin-bottom: 18px;
+
+    animation: fadeUp 1.5s ease forwards;
+}
+
+.chapter strong {
+    color: #fff;
+}
+
+
+/* Button */
+
+.chapter button {
+    margin-top: 18px;
+
+    animation: fadeUp 1.8s ease forwards;
+}
+
+
+/* =========================
+   CHAPTER ANIMATIONS
+========================= */
+
+@keyframes chapterReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes chapterGlow {
+
+    from {
+        transform: scale(0.8);
+        opacity: 0.4;
+    }
+
+    to {
+        transform: scale(1.25);
+        opacity: 1;
+    }
+
+}
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+
+}
+
+/* =========================
+   CHAPTER 02
+========================= */
+
+.chapter-two-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #3b1f2b 0%,
+            #1c1017 45%,
+            #0f0f0f 80%
+        );
+
+    overflow: hidden;
+
+    animation: chapterReveal 1.2s ease forwards;
+}
+
+.memory-chapter {
+    width: 100%;
+    max-width: 650px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.memory-chapter h1 {
+    font-size: clamp(50px, 8vw, 85px);
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.memory-chapter h1 span {
+    color: #e58b9b;
+
+    text-shadow:
+        0 0 25px rgba(229, 139, 155, 0.35);
+}
+
+
+/* =========================
+   MEMORY FRAME
+========================= */
+
+.memory-frame {
+    width: min(90vw, 500px);
+
+    height: 300px;
+
+    margin: 0 auto 30px;
+
+    padding: 10px;
+
+    border: 1px solid rgba(229, 139, 155, 0.35);
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(201, 107, 124, 0.12);
+
+    animation:
+        memoryReveal 1.5s ease forwards,
+        memoryFloat 5s ease-in-out 1.5s infinite;
+}
+
+.memory-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(201, 107, 124, 0.12),
+            rgba(255, 255, 255, 0.03)
+        );
+}
+
+.memory-placeholder span {
+    font-size: 60px;
+
+    color: #e58b9b;
+
+    animation: heartPulse 2s ease-in-out infinite;
+}
+
+.memory-placeholder p {
+    margin-top: 15px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    color: #aaa;
+}
+
+
+/* =========================
+   MEMORY TEXT
+========================= */
+
+.memory-text {
+    max-width: 580px;
+
+    margin: 0 auto 30px;
+
+    color: #d5d5d5;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    animation: fadeUp 1.7s ease forwards;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes memoryReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+@keyframes memoryFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================
+   CHAPTER 03
+========================= */
+
+.chapter-three-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #38202a 0%,
+            #1b1116 45%,
+            #0b0b0b 85%
+        );
+
+    overflow: hidden;
+
+    animation: chapterReveal 1.2s ease forwards;
+}
+
+.strength-chapter {
+    max-width: 680px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.strength-chapter h1 {
+    font-size: clamp(50px, 8vw, 85px);
+
+    line-height: 1;
+
+    margin-bottom: 35px;
+
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.strength-chapter h1 span {
+    color: #e58b9b;
+
+    text-shadow:
+        0 0 25px rgba(229, 139, 155, 0.35);
+}
+
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote {
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-size: clamp(20px, 4vw, 27px);
+
+    line-height: 1.6;
+
+    color: #f1dfe3;
+
+    margin-bottom: 35px;
+
+    animation: fadeUp 1.5s ease forwards;
+}
+
+
+/* =========================
+   STORY TEXT
+========================= */
+
+.strength-chapter p {
+    font-family: Arial, sans-serif;
+
+    color: #cfcfcf;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+
+    animation: fadeUp 1.7s ease forwards;
+}
+
+
+/* =========================
+   HEART DIVIDER
+========================= */
+
+.heart-divider {
+    margin: 25px 0;
+
+    color: #e58b9b;
+
+    font-size: 20px;
+
+    letter-spacing: 5px;
+
+    animation: heartPulse 2s ease-in-out infinite;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.strength-chapter button {
+    margin-top: 10px;
+
+    animation: fadeUp 2s ease forwards;
+}
+/* =========================
+   CHAPTER 02 BUTTON FIX
+========================= */
+
+.memory-chapter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.memory-chapter button {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 10;
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    animation: fadeUp 1.9s ease forwards;
+}
+
+/* =========================================================
+   CHAPTER 02 - THERE'S MORE FIX
+========================================================= */
+
+.chapter-two-page {
+    position: relative;
+}
+
+.memory-chapter {
+    position: relative;
+    z-index: 20;
+}
+
+.more-button {
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+    position: relative;
+    z-index: 999;
+}
+
+.more-button button {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 9999;
+    
+    margin: 0 auto;
+    
+    background: #c96b7c;
+    color: #fff;
+    border: none;
+    
+    padding: 15px 30px;
+    border-radius: 50px;
+    
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    
+    box-shadow:
+        0 8px 30px rgba(201, 107, 124, 0.25);
+}
+
+.more-button button:hover {
+    background: #e58b9b;
+    transform: scale(1.07);
+}
+
+/* =========================================================
+   CHAPTER 02 - MEMORY FRAME
+========================================================= */
+
+.chapter-two-page {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #3b1f2b 0%,
+            #1c1017 45%,
+            #0f0f0f 80%
+        );
+}
+
+.memory-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(229, 139, 155, 0.10);
+
+    filter: blur(90px);
+
+    animation: chapterGlow 5s ease-in-out infinite alternate;
+}
+
+.memory-chapter {
+    width: 100%;
+    max-width: 650px;
+
+    position: relative;
+    z-index: 10;
+}
+
+.memory-chapter .chapter-number {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: #d8a7b1;
+
+    margin-bottom: 25px;
+}
+
+.memory-chapter h1 {
+    font-size: clamp(50px, 8vw, 85px);
+    line-height: 1;
+
+    margin-bottom: 30px;
+}
+
+.memory-chapter h1 span {
+    color: #e58b9b;
+
+    text-shadow:
+        0 0 25px rgba(229, 139, 155, 0.35);
+}
+
+
+/* MEMORY FRAME */
+
+.memory-frame {
+    width: min(90vw, 500px);
+    height: 300px;
+
+    margin: 0 auto 30px;
+
+    padding: 10px;
+
+    border: 1px solid rgba(229, 139, 155, 0.45);
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.5),
+        0 0 35px rgba(201, 107, 124, 0.15);
+
+    animation:
+        memoryReveal 1.5s ease forwards,
+        memoryFloat 5s ease-in-out 1.5s infinite;
+}
+
+.memory-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(201, 107, 124, 0.14),
+            rgba(255, 255, 255, 0.03)
+        );
+}
+
+.memory-placeholder span {
+    font-size: 60px;
+
+    color: #e58b9b;
+
+    animation: heartPulse 2s ease-in-out infinite;
+}
+
+.memory-placeholder p {
+    margin-top: 15px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    color: #aaa;
+}
+
+
+/* MEMORY TEXT */
+
+.memory-text {
+    max-width: 580px;
+
+    margin: 0 auto 25px;
+
+    color: #d5d5d5;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* THERE'S MORE */
+
+.more-button {
+    display: block;
+
+    width: 100%;
+
+    position: relative;
+
+    z-index: 999;
+
+    margin-top: 10px;
+}
+
+.more-button button {
+    display: inline-block !important;
+
+    visibility: visible !important;
+
+    opacity: 1 !important;
+
+    background: #c96b7c;
+
+    color: white;
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+
+    font-family: Arial, sans-serif;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 30px rgba(201, 107, 124, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.more-button button:hover {
+    background: #e58b9b;
+
+    transform: scale(1.07);
+
+    box-shadow:
+        0 10px 35px rgba(229, 139, 155, 0.4);
+}
+
+
+/* FRAME ANIMATIONS */
+
+@keyframes memoryReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+@keyframes memoryFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .chapter-two-page {
+        padding: 25px 20px;
+    }
+
+    .memory-frame {
+        width: 90vw;
+        height: 250px;
+    }
+
+    .memory-text {
+        font-size: 15px;
+    }
+
+    .more-button button {
+        padding: 14px 26px;
+    }
+
+}
+
+/* CHAPTER 02 FINAL FIX */
+
+.chapter-two-page {
+    min-height: 100vh !important;
+    height: 100vh !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+
+    padding: 50px 25px 70px !important;
+}
+
+.memory-chapter {
+    width: 100% !important;
+    max-width: 650px !important;
+
+    position: relative !important;
+    z-index: 100 !important;
+
+    padding-bottom: 30px !important;
+}
+
+.memory-frame {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.memory-text {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.memory-chapter button {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    position: relative !important;
+    z-index: 9999 !important;
+
+    margin-top: 10px !important;
+}
+
+/* =========================================================
+   CHAPTER 03 — CINEMATIC / EMOTIONAL
+========================================================= */
+
+.chapter-three-page {
+    min-height: 100vh;
+    height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    padding: 40px 8%;
+
+    background:
+        radial-gradient(
+            circle at 78% 50%,
+            #42212f 0%,
+            #211119 32%,
+            #0f0f0f 72%
+        );
+
+    animation: chapterThreeReveal 1.2s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   RIGHT SIDE GLOW
+--------------------------------------------------------- */
+
+.chapter-three-page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 480px;
+    height: 480px;
+
+    right: 5%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(229, 139, 155, 0.10);
+
+    filter: blur(90px);
+
+    animation: strengthGlow 5s ease-in-out infinite alternate;
+}
+
+
+/* ---------------------------------------------------------
+   DECORATIVE HEART
+--------------------------------------------------------- */
+
+.chapter-three-page::after {
+    content: "♥";
+
+    position: absolute;
+
+    right: 13%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 180px;
+
+    color: rgba(229, 139, 155, 0.07);
+
+    text-shadow:
+        0 0 60px rgba(229, 139, 155, 0.18);
+
+    animation: giantHeartFloat 5s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   MAIN CONTENT
+--------------------------------------------------------- */
+
+.strength-chapter {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(100%, 680px);
+
+    text-align: left;
+
+    margin-left: 3%;
+
+    animation: strengthContentReveal 1.3s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   CHAPTER NUMBER
+--------------------------------------------------------- */
+
+.strength-chapter .chapter-number {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 6px;
+
+    color: #d8a7b1;
+
+    margin-bottom: 25px;
+
+    animation: fadeDown 1s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   HEADING
+--------------------------------------------------------- */
+
+.strength-chapter h1 {
+    font-size: clamp(52px, 7vw, 88px);
+
+    line-height: 0.95;
+
+    margin-bottom: 32px;
+
+    text-align: left;
+
+    text-shadow:
+        0 0 25px rgba(229, 139, 155, 0.12);
+
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.strength-chapter h1 span {
+    color: #e58b9b;
+
+    text-shadow:
+        0 0 25px rgba(229, 139, 155, 0.35);
+}
+
+
+/* ---------------------------------------------------------
+   QUOTE
+--------------------------------------------------------- */
+
+.strength-chapter .quote {
+    max-width: 600px;
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-size: clamp(20px, 3vw, 27px);
+
+    line-height: 1.55;
+
+    color: #f1dfe3;
+
+    margin-bottom: 28px;
+
+    padding-left: 22px;
+
+    border-left: 2px solid rgba(229, 139, 155, 0.45);
+
+    animation: quoteReveal 1.5s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   HEART DIVIDER
+--------------------------------------------------------- */
+
+.strength-chapter .heart-divider {
+    margin: 22px 0;
+
+    color: #e58b9b;
+
+    font-size: 20px;
+
+    letter-spacing: 5px;
+
+    text-align: left;
+
+    animation:
+        heartPulse 2s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   STORY TEXT
+--------------------------------------------------------- */
+
+.strength-chapter p:not(.quote) {
+    max-width: 600px;
+
+    font-family: Arial, sans-serif;
+
+    color: #cfcfcf;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+
+    animation: fadeUp 1.7s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   BUTTON
+--------------------------------------------------------- */
+
+.strength-chapter button {
+    margin-top: 18px;
+
+    animation: fadeUp 2s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   CINEMATIC ANIMATIONS
+--------------------------------------------------------- */
+
+@keyframes chapterThreeReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(1.06);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes strengthContentReveal {
+
+    from {
+        opacity: 0;
+        transform: translateX(-45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+@keyframes strengthGlow {
+
+    from {
+        transform: translateY(-50%) scale(0.85);
+
+        opacity: 0.35;
+    }
+
+    to {
+        transform: translateY(-50%) scale(1.2);
+
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes giantHeartFloat {
+
+    0%,
+    100% {
+        transform: translateY(-50%) scale(1);
+
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-54%) scale(1.08);
+
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes quoteReveal {
+
+    from {
+        opacity: 0;
+
+        transform: translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .chapter-three-page {
+        min-height: 100vh;
+        height: auto;
+
+        min-height: 100vh;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 50px 25px 60px;
+
+        text-align: center;
+
+        background:
+            radial-gradient(
+                circle at center,
+                #42212f 0%,
+                #211119 45%,
+                #0f0f0f 82%
+            );
+    }
+
+
+    .chapter-three-page::before {
+        width: 350px;
+        height: 350px;
+
+        right: 50%;
+        top: 50%;
+
+        transform: translate(50%, -50%);
+    }
+
+
+    .chapter-three-page::after {
+        right: 50%;
+        top: 50%;
+
+        transform: translate(50%, -50%);
+
+        font-size: 130px;
+    }
+
+
+    .strength-chapter {
+        width: 100%;
+
+        margin-left: 0;
+
+        text-align: center;
+    }
+
+
+    .strength-chapter .chapter-number {
+        margin-bottom: 20px;
+    }
+
+
+    .strength-chapter h1 {
+        font-size: clamp(48px, 13vw, 72px);
+
+        text-align: center;
+
+        margin-bottom: 28px;
+    }
+
+
+    .strength-chapter .quote {
+        margin-left: auto;
+        margin-right: auto;
+
+        padding-left: 0;
+
+        border-left: none;
+
+        max-width: 500px;
+
+        text-align: center;
+
+        font-size: 20px;
+    }
+
+
+    .strength-chapter .heart-divider {
+        text-align: center;
+
+        margin: 20px 0;
+    }
+
+
+    .strength-chapter p:not(.quote) {
+        margin-left: auto;
+        margin-right: auto;
+
+        text-align: center;
+    }
+
+
+    .strength-chapter button {
+        margin-top: 18px;
+    }
+
+}
+
+/* =========================================================
+   FINAL CHAPTER — CINEMATIC ENDING
+========================================================= */
+
+.final-page {
+    min-height: 100vh;
+    height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #4a202f 0%,
+            #211117 40%,
+            #0f0f0f 78%
+        );
+
+    animation: finalReveal 1.5s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   FINAL GLOW
+--------------------------------------------------------- */
+
+.final-page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 550px;
+    height: 550px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: rgba(229, 139, 155, 0.12);
+
+    filter: blur(100px);
+
+    animation: finalGlow 5s ease-in-out infinite alternate;
+}
+
+
+/* ---------------------------------------------------------
+   FINAL CONTENT
+--------------------------------------------------------- */
+
+.final-chapter {
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    animation: finalContentReveal 1.5s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   HEART
+--------------------------------------------------------- */
+
+.final-heart {
+    font-size: 85px;
+
+    line-height: 1;
+
+    color: #e58b9b;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 20px rgba(229, 139, 155, 0.5),
+        0 0 50px rgba(229, 139, 155, 0.3);
+
+    animation: finalHeartPulse 2s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   SMALL TITLE
+--------------------------------------------------------- */
+
+.final-small {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 6px;
+
+    color: #d8a7b1;
+
+    margin-bottom: 25px;
+
+    animation: fadeDown 1.2s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   MAIN TITLE
+--------------------------------------------------------- */
+
+.final-chapter h1 {
+    font-size: clamp(60px, 10vw, 110px);
+
+    line-height: 0.95;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 0 25px rgba(229, 139, 155, 0.18);
+
+    animation: fadeUp 1.4s ease forwards;
+}
+
+.final-chapter h1 span {
+    color: #e58b9b;
+
+    text-shadow:
+        0 0 25px rgba(229, 139, 155, 0.4);
+}
+
+
+/* ---------------------------------------------------------
+   FINAL TEXT
+--------------------------------------------------------- */
+
+.final-text {
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: #d5d5d5;
+
+    margin-bottom: 25px;
+
+    animation: fadeUp 1.7s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   DIVIDER
+--------------------------------------------------------- */
+
+.final-line {
+    color: #c96b7c;
+
+    font-size: 18px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 30px;
+
+    animation: heartPulse 2s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   FOREVER MESSAGE
+--------------------------------------------------------- */
+
+.forever {
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: #f1dfe3;
+
+    animation: fadeUp 2s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   ANIMATIONS
+--------------------------------------------------------- */
+
+@keyframes finalReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes finalContentReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes finalGlow {
+
+    from {
+        transform: translate(-50%, -50%) scale(0.85);
+        opacity: 0.4;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes finalHeartPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+/* =========================================================
+   FINAL — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .final-page {
+        min-height: 100vh;
+        height: auto;
+
+        padding: 40px 25px;
+    }
+
+    .final-heart {
+        font-size: 65px;
+    }
+
+    .final-small {
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+
+    .final-chapter h1 {
+        font-size: clamp(50px, 14vw, 75px);
+    }
+
+    .final-text,
+    .forever {
+        font-size: 16px;
+    }
+
+}
+
+/* CHAPTER 03 - BUTTON POSITION POLISH */
+
+.strength-chapter button {
+    margin-top: 18px !important;
+    margin-bottom: 25px !important;
+}
+
+
+/* =========================================================
+   FINAL CHAPTER — CINEMATIC ENDING
+========================================================= */
+
+/* ...yung buong FINAL CHAPTER CSS mo... */
+/* CHAPTER 03 - BUTTON POSITION POLISH */
+
+.strength-chapter button {
+    margin-top: 18px !important;
+    margin-bottom: 25px !important;
+}
+
+/* =========================================================
+   CHAPTER 04 — FOREVER / RIGHT SIDE
+========================================================= */
+
+.chapter-four-page {
+    min-height: 100vh;
+    height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    padding: 40px 8%;
+
+    background:
+        radial-gradient(
+            circle at 25% 50%,
+            #42212f 0%,
+            #211119 35%,
+            #0f0f0f 78%
+        );
+
+    animation: chapterFourReveal 1.2s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   LEFT SIDE GLOW
+--------------------------------------------------------- */
+
+.chapter-four-page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: 5%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(229, 139, 155, 0.10);
+
+    filter: blur(90px);
+
+    animation: foreverGlow 5s ease-in-out infinite alternate;
+}
+
+
+/* ---------------------------------------------------------
+   DECORATIVE HEART
+--------------------------------------------------------- */
+
+.chapter-four-page::after {
+    content: "♥";
+
+    position: absolute;
+
+    left: 13%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 190px;
+
+    color: rgba(229, 139, 155, 0.07);
+
+    text-shadow:
+        0 0 60px rgba(229, 139, 155, 0.18);
+
+    animation: foreverHeartFloat 5s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   CONTENT
+--------------------------------------------------------- */
+
+.forever-chapter {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(100%, 650px);
+
+    margin-left: auto;
+
+    margin-right: 3%;
+
+    text-align: right;
+
+    animation: foreverContentReveal 1.3s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   CHAPTER NUMBER
+--------------------------------------------------------- */
+
+.forever-chapter .chapter-number {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 6px;
+
+    color: #d8a7b1;
+
+    margin-bottom: 25px;
+
+    animation: fadeDown 1s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   HEADING
+--------------------------------------------------------- */
+
+.forever-chapter h1 {
+    font-size: clamp(55px, 8vw, 95px);
+
+    line-height: 0.95;
+
+    margin-bottom: 25px;
+
+    text-align: right;
+
+    text-shadow:
+        0 0 25px rgba(229, 139, 155, 0.15);
+
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.forever-chapter h1 span {
+    color: #e58b9b;
+
+    text-shadow:
+        0 0 25px rgba(229, 139, 155, 0.35);
+}
+
+
+/* ---------------------------------------------------------
+   BIG HEART
+--------------------------------------------------------- */
+
+.big-heart {
+    font-size: 85px;
+
+    line-height: 1;
+
+    color: #e58b9b;
+
+    margin: 5px 0 25px;
+
+    text-shadow:
+        0 0 20px rgba(229, 139, 155, 0.5),
+        0 0 50px rgba(229, 139, 155, 0.25);
+
+    animation: bigHeartPulse 2s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   TEXT
+--------------------------------------------------------- */
+
+.forever-chapter p:not(.chapter-number) {
+    font-family: Arial, sans-serif;
+
+    color: #d5d5d5;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+
+    animation: fadeUp 1.6s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   STRONG TEXT
+--------------------------------------------------------- */
+
+.forever-chapter strong {
+    color: #fff;
+
+    text-shadow:
+        0 0 10px rgba(229, 139, 155, 0.15);
+}
+
+
+/* ---------------------------------------------------------
+   BUTTON
+--------------------------------------------------------- */
+
+.forever-chapter button {
+    margin-top: 15px;
+
+    animation: fadeUp 2s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   ANIMATIONS
+--------------------------------------------------------- */
+
+@keyframes chapterFourReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(1.06);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes foreverContentReveal {
+
+    from {
+        opacity: 0;
+        transform: translateX(45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+@keyframes foreverGlow {
+
+    from {
+        transform: translateY(-50%) scale(0.85);
+        opacity: 0.35;
+    }
+
+    to {
+        transform: translateY(-50%) scale(1.2);
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes foreverHeartFloat {
+
+    0%,
+    100% {
+        transform: translateY(-50%) scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-54%) scale(1.08);
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes bigHeartPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .chapter-four-page {
+        min-height: 100vh;
+        height: auto;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 50px 25px 60px;
+
+        background:
+            radial-gradient(
+                circle at center,
+                #42212f 0%,
+                #211119 45%,
+                #0f0f0f 82%
+            );
+    }
+
+
+    .chapter-four-page::before {
+        width: 350px;
+        height: 350px;
+
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+    }
+
+
+    .chapter-four-page::after {
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+
+        font-size: 130px;
+    }
+
+
+    .forever-chapter {
+        width: 100%;
+
+        margin: 0;
+
+        text-align: center;
+    }
+
+
+    .forever-chapter h1 {
+        font-size: clamp(50px, 13vw, 75px);
+
+        text-align: center;
+    }
+
+
+    .big-heart {
+        font-size: 70px;
+    }
+
+
+    .forever-chapter p:not(.chapter-number) {
+        font-size: 15px;
+
+        text-align: center;
+    }
+
+
+    .forever-chapter button {
+        margin-top: 15px;
+    }
+
+}
+/* FINAL CHAPTER - BOTTOM SPACING POLISH */
+
+.final-chapter {
+    transform: translateY(-15px);
+}
+
+/* =========================================================
+   CHAPTER 02 — CINEMATIC PHOTO GALLERY
+========================================================= */
+
+.photo-gallery {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ---------------------------------------------------------
+   PHOTO FRAME
+--------------------------------------------------------- */
+
+.photo-frame {
+    position: relative;
+
+    width: min(88vw, 500px);
+    height: min(62vw, 340px);
+
+    min-height: 250px;
+
+    padding: 8px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(229, 139, 155, 0.45);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(201,107,124,0.08)
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.55),
+        0 0 35px rgba(201,107,124,0.18);
+
+    overflow: hidden;
+
+    animation:
+        memoryReveal 1.3s ease forwards,
+        memoryFloat 5s ease-in-out 1.5s infinite;
+}
+
+
+/* ---------------------------------------------------------
+   PHOTO
+--------------------------------------------------------- */
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.7s ease,
+        filter 0.5s ease;
+
+    box-shadow:
+        inset 0 0 30px rgba(0,0,0,0.25);
+}
+
+
+/* Photo transition */
+
+.photo-frame img.photo-changing {
+    animation: photoChange 0.7s ease forwards;
+}
+
+
+@keyframes photoChange {
+
+    0% {
+        opacity: 0;
+        transform: scale(1.06);
+        filter: blur(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   PHOTO SHINE
+--------------------------------------------------------- */
+
+.photo-shine {
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.16),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    pointer-events: none;
+
+    animation: photoShine 5s ease-in-out infinite;
+}
+
+
+@keyframes photoShine {
+
+    0% {
+        left: -120%;
+    }
+
+    35% {
+        left: 140%;
+    }
+
+    100% {
+        left: 140%;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   CONTROLS
+--------------------------------------------------------- */
+
+.photo-controls {
+    width: min(88vw, 500px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 18px;
+}
+
+
+/* ---------------------------------------------------------
+   GALLERY ARROWS
+--------------------------------------------------------- */
+
+.gallery-arrow {
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(201,107,124,0.15);
+
+    border: 1px solid rgba(229,139,155,0.35);
+
+    color: #e58b9b;
+
+    font-size: 19px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.25);
+
+    animation: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.gallery-arrow:hover {
+
+    background: #c96b7c;
+
+    color: white;
+
+    transform: scale(1.12);
+
+    box-shadow:
+        0 8px 25px rgba(201,107,124,0.35);
+}
+
+
+.gallery-arrow:active {
+    transform: scale(0.92);
+}
+
+
+/* ---------------------------------------------------------
+   PHOTO COUNTER
+--------------------------------------------------------- */
+
+.photo-counter {
+
+    min-width: 75px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    color: #d8a7b1;
+}
+
+
+#photoNumber {
+    color: #e58b9b;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+
+.counter-line {
+    color: rgba(216,167,177,0.4);
+}
+
+
+/* ---------------------------------------------------------
+   MEMORY TEXT
+--------------------------------------------------------- */
+
+.chapter-two-page .memory-text {
+
+    max-width: 580px;
+
+    margin: 0 auto 25px;
+
+    color: #d5d5d5;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    animation: fadeUp 1.7s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   CHAPTER 02 BUTTON
+--------------------------------------------------------- */
+
+.chapter-two-page .memory-chapter > button {
+
+    margin-top: 5px;
+
+    position: relative;
+
+    z-index: 20;
+
+    animation: fadeUp 1.9s ease forwards;
+}
+
+
+/* =========================================================
+   MOBILE GALLERY
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .chapter-two-page {
+
+        padding:
+            40px 20px 50px !important;
+    }
+
+
+    .memory-chapter h1 {
+
+        font-size:
+            clamp(42px, 12vw, 70px);
+
+        margin-bottom: 22px;
+    }
+
+
+    .photo-gallery {
+
+        margin-bottom: 20px;
+    }
+
+
+    .photo-frame {
+
+        width: 90vw;
+
+        height: 58vw;
+
+        min-height: 230px;
+
+        max-height: 330px;
+
+        border-radius: 17px;
+    }
+
+
+    .photo-frame img {
+
+        border-radius: 11px;
+    }
+
+
+    .photo-controls {
+
+        gap: 20px;
+
+        margin-top: 15px;
+    }
+
+
+    .gallery-arrow {
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 17px;
+    }
+
+
+    .chapter-two-page .memory-text {
+
+        font-size: 14px;
+
+        line-height: 1.7;
+
+        margin-bottom: 20px;
+    }
+
+}
+
+/* =========================================================
+   CHAPTER 02 — FINAL CINEMATIC GALLERY POLISH
+========================================================= */
+
+.photo-gallery {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto 28px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    z-index: 20;
+}
+
+
+/* =========================================================
+   CINEMATIC PHOTO FRAME
+========================================================= */
+
+.photo-frame {
+    position: relative;
+
+    width: min(88vw, 500px);
+    height: min(62vw, 340px);
+
+    min-height: 250px;
+
+    padding: 7px;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(229, 139, 155, 0.45);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.09),
+            rgba(201,107,124,0.06)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.60),
+        0 0 35px rgba(201,107,124,0.16),
+        0 0 90px rgba(229,139,155,0.05);
+
+    overflow: hidden;
+
+    animation:
+        memoryReveal 1.3s ease forwards,
+        cinematicFloat 6s ease-in-out 1.3s infinite;
+}
+
+
+/* Outer romantic glow */
+
+.photo-frame::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -2px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(229,139,155,0.35),
+            transparent 35%,
+            transparent 65%,
+            rgba(229,139,155,0.20)
+        );
+
+    opacity: 0.45;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.photo-frame img {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 16px;
+
+    z-index: 2;
+
+    transition:
+        transform 0.8s ease,
+        opacity 0.5s ease,
+        filter 0.6s ease;
+
+    box-shadow:
+        inset 0 0 35px rgba(0,0,0,0.35);
+}
+
+
+/* Subtle cinematic movement */
+
+.photo-frame:hover img {
+    transform: scale(1.025);
+}
+
+
+/* Photo change animation */
+
+.photo-frame img.photo-changing {
+    animation: cinematicPhotoChange 0.85s ease forwards;
+}
+
+
+@keyframes cinematicPhotoChange {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(1.07)
+            translateX(8px);
+
+        filter:
+            blur(6px)
+            brightness(0.75);
+    }
+
+    45% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateX(0);
+
+        filter:
+            blur(0)
+            brightness(1);
+    }
+}
+
+
+/* =========================================================
+   PHOTO SHINE
+========================================================= */
+
+.photo-shine {
+    position: absolute;
+
+    top: -20%;
+    left: -120%;
+
+    width: 55%;
+    height: 140%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.16),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    animation:
+        cinematicShine 7s ease-in-out infinite;
+}
+
+
+@keyframes cinematicShine {
+
+    0% {
+        left: -120%;
+    }
+
+    25% {
+        left: 140%;
+    }
+
+    100% {
+        left: 140%;
+    }
+}
+
+
+/* =========================================================
+   PHOTO CONTROLS
+========================================================= */
+
+.photo-controls {
+    width: min(88vw, 500px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 26px;
+
+    margin-top: 18px;
+}
+
+
+/* =========================================================
+   GALLERY BUTTONS
+========================================================= */
+
+.gallery-arrow {
+    width: 43px;
+    height: 43px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(201,107,124,0.10);
+
+    border:
+        1px solid rgba(229,139,155,0.35);
+
+    color: #e58b9b;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 6px 25px rgba(0,0,0,0.25);
+
+    animation: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.gallery-arrow:hover {
+    background: #c96b7c;
+
+    color: #fff;
+
+    transform: scale(1.12);
+
+    box-shadow:
+        0 8px 30px rgba(201,107,124,0.40);
+}
+
+
+.gallery-arrow:active {
+    transform: scale(0.92);
+}
+
+
+/* =========================================================
+   COUNTER
+========================================================= */
+
+.photo-counter {
+    min-width: 85px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: rgba(216,167,177,0.65);
+}
+
+
+#photoNumber {
+    color: #e58b9b;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 12px rgba(229,139,155,0.35);
+}
+
+
+.counter-line {
+    color:
+        rgba(216,167,177,0.30);
+}
+
+
+/* =========================================================
+   MEMORY TEXT
+========================================================= */
+
+.chapter-two-page .memory-text {
+    max-width: 580px;
+
+    margin: 0 auto 25px;
+
+    color: #d5d5d5;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    animation:
+        fadeUp 1.7s ease forwards;
+}
+
+
+/* =========================================================
+   THERE'S MORE BUTTON
+========================================================= */
+
+.chapter-two-page .memory-chapter > button {
+    margin-top: 5px;
+
+    position: relative;
+
+    z-index: 30;
+
+    animation:
+        fadeUp 1.9s ease forwards;
+}
+
+
+/* =========================================================
+   FLOATING FRAME
+========================================================= */
+
+@keyframes cinematicFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .chapter-two-page {
+        padding:
+            40px 20px 55px !important;
+    }
+
+
+    .memory-chapter h1 {
+        font-size:
+            clamp(42px, 12vw, 70px);
+
+        margin-bottom: 22px;
+    }
+
+
+    .photo-gallery {
+        margin-bottom: 20px;
+    }
+
+
+    .photo-frame {
+        width: 90vw;
+
+        height: 58vw;
+
+        min-height: 230px;
+
+        max-height: 330px;
+
+        border-radius: 18px;
+    }
+
+
+    .photo-frame img {
+        border-radius: 13px;
+    }
+
+
+    .photo-controls {
+        gap: 20px;
+
+        margin-top: 15px;
+    }
+
+
+    .gallery-arrow {
+        width: 40px;
+        height: 40px;
+
+        font-size: 17px;
+    }
+
+
+    .photo-counter {
+        min-width: 75px;
+
+        font-size: 11px;
+    }
+
+
+    #photoNumber {
+        font-size: 15px;
+    }
+
+
+    .chapter-two-page .memory-text {
+        font-size: 14px;
+
+        line-height: 1.7;
+
+        margin-bottom: 20px;
+    }
+}
+
+/* =========================================================
+   CHAPTER 03 — CINEMATIC POLISH
+========================================================= */
+
+.chapter-three-page {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(201,107,124,0.14),
+            transparent 32%
+        ),
+        linear-gradient(
+            120deg,
+            #211119,
+            #120b0f 65%,
+            #0b0b0b
+        );
+
+    animation: chapterThreeAppear 1.4s ease forwards;
+}
+
+
+/* =========================================================
+   CHAPTER 03 CONTENT
+========================================================= */
+
+.chapter-three-page .strength-chapter {
+    position: relative;
+
+    z-index: 10;
+
+    animation:
+        strengthContentReveal 1.4s ease forwards;
+}
+
+
+/* Chapter number */
+
+.chapter-three-page .chapter-number {
+    color: #d8a7b1;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 15px rgba(229,139,155,0.18);
+}
+
+
+/* Main heading */
+
+.chapter-three-page h1 {
+    text-shadow:
+        0 8px 30px rgba(0,0,0,0.45),
+        0 0 25px rgba(201,107,124,0.08);
+}
+
+
+/* Highlighted heading */
+
+.chapter-three-page h1 span {
+    color: #e58b9b;
+
+    text-shadow:
+        0 0 22px rgba(229,139,155,0.25);
+}
+
+
+/* =========================================================
+   CHAPTER 03 TEXT
+========================================================= */
+
+.chapter-three-page p {
+    position: relative;
+
+    color: #d8d0d2;
+
+    text-shadow:
+        0 2px 12px rgba(0,0,0,0.35);
+}
+
+
+/* =========================================================
+   ROMANTIC GLOW
+========================================================= */
+
+.chapter-three-page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    right: 7%;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201,107,124,0.18),
+            rgba(201,107,124,0.05) 35%,
+            transparent 70%
+        );
+
+    filter: blur(8px);
+
+    pointer-events: none;
+
+    animation:
+        strengthGlow 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   HEART / DECORATIVE ELEMENT
+========================================================= */
+
+.chapter-three-page::after {
+    content: "♡";
+
+    position: absolute;
+
+    right: 14%;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        rgba(229,139,155,0.20);
+
+    font-size:
+        clamp(180px, 24vw, 330px);
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 50px rgba(229,139,155,0.12);
+
+    animation:
+        heartFloat 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.chapter-three-page button {
+    position: relative;
+
+    z-index: 20;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.chapter-three-page button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(201,107,124,0.28);
+}
+
+
+/* =========================================================
+   ENTRANCE ANIMATIONS
+========================================================= */
+
+@keyframes chapterThreeAppear {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes strengthContentReveal {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateX(-45px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+@keyframes strengthGlow {
+
+    0% {
+        transform:
+            translateY(-50%)
+            scale(0.95);
+
+        opacity: 0.65;
+    }
+
+    50% {
+        transform:
+            translateY(-50%)
+            scale(1.08);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-50%)
+            scale(0.95);
+
+        opacity: 0.65;
+    }
+}
+
+
+@keyframes heartFloat {
+
+    0% {
+        transform:
+            translateY(-50%)
+            scale(1);
+
+        opacity: 0.18;
+    }
+
+    50% {
+        transform:
+            translateY(calc(-50% - 10px))
+            scale(1.035);
+
+        opacity: 0.28;
+    }
+
+    100% {
+        transform:
+            translateY(-50%)
+            scale(1);
+
+        opacity: 0.18;
+    }
+}
+
+
+/* =========================================================
+   MOBILE CHAPTER 03
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .chapter-three-page {
+        background:
+            radial-gradient(
+                circle at 50% 30%,
+                rgba(201,107,124,0.13),
+                transparent 38%
+            ),
+            linear-gradient(
+                160deg,
+                #211119,
+                #0b0b0b
+            );
+    }
+
+
+    .chapter-three-page::before {
+        width: 300px;
+        height: 300px;
+
+        right: 50%;
+        top: 70%;
+
+        transform:
+            translate(50%, -50%);
+    }
+
+
+    .chapter-three-page::after {
+        right: 50%;
+        top: 72%;
+
+        transform:
+            translate(50%, -50%);
+
+        font-size:
+            clamp(160px, 48vw, 240px);
+    }
+
+
+    .chapter-three-page .strength-chapter {
+        animation:
+            strengthMobileReveal 1.2s ease forwards;
+    }
+
+
+    .chapter-three-page h1 {
+        text-shadow:
+            0 5px 20px rgba(0,0,0,0.5);
+    }
+
+}
+
+
+@keyframes strengthMobileReveal {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+/* =========================================================
+   CHAPTER 04 — CINEMATIC POLISH
+========================================================= */
+
+.chapter-four-page {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 25% 50%,
+            rgba(201,107,124,0.14),
+            transparent 32%
+        ),
+        linear-gradient(
+            240deg,
+            #38202a,
+            #160d12 65%,
+            #0b0b0b
+        );
+
+    animation:
+        chapterFourAppear 1.4s ease forwards;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.chapter-four-page .chapter-four {
+    position: relative;
+
+    z-index: 10;
+
+    animation:
+        chapterFourContent 1.4s ease forwards;
+}
+
+
+/* =========================================================
+   CHAPTER NUMBER
+========================================================= */
+
+.chapter-four-page .chapter-number {
+    color: #d8a7b1;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 15px rgba(229,139,155,0.18);
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.chapter-four-page h1 {
+    text-shadow:
+        0 8px 30px rgba(0,0,0,0.45),
+        0 0 25px rgba(201,107,124,0.08);
+}
+
+
+.chapter-four-page h1 span {
+    color: #e58b9b;
+
+    text-shadow:
+        0 0 22px rgba(229,139,155,0.25);
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.chapter-four-page p {
+    color: #d8d0d2;
+
+    text-shadow:
+        0 2px 12px rgba(0,0,0,0.35);
+}
+
+
+/* =========================================================
+   LEFT ROMANTIC GLOW
+========================================================= */
+
+.chapter-four-page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    left: 6%;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201,107,124,0.18),
+            rgba(201,107,124,0.05) 35%,
+            transparent 70%
+        );
+
+    filter: blur(8px);
+
+    pointer-events: none;
+
+    animation:
+        chapterFourGlow 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   DECORATIVE HEART
+========================================================= */
+
+.chapter-four-page::after {
+    content: "♥";
+
+    position: absolute;
+
+    left: 13%;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        rgba(229,139,155,0.16);
+
+    font-size:
+        clamp(180px, 24vw, 330px);
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 55px rgba(229,139,155,0.12);
+
+    animation:
+        chapterFourHeart 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.chapter-four-page button {
+    position: relative;
+
+    z-index: 20;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.chapter-four-page button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(201,107,124,0.28);
+}
+
+
+/* =========================================================
+   ENTRANCE
+========================================================= */
+
+@keyframes chapterFourAppear {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes chapterFourContent {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateX(45px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+@keyframes chapterFourGlow {
+
+    0% {
+        transform:
+            translateY(-50%)
+            scale(0.95);
+
+        opacity: 0.60;
+    }
+
+    50% {
+        transform:
+            translateY(-50%)
+            scale(1.08);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-50%)
+            scale(0.95);
+
+        opacity: 0.60;
+    }
+}
+
+
+/* =========================================================
+   HEART FLOAT
+========================================================= */
+
+@keyframes chapterFourHeart {
+
+    0% {
+        transform:
+            translateY(-50%)
+            scale(1);
+
+        opacity: 0.15;
+    }
+
+    50% {
+        transform:
+            translateY(calc(-50% - 10px))
+            scale(1.04);
+
+        opacity: 0.25;
+    }
+
+    100% {
+        transform:
+            translateY(-50%)
+            scale(1);
+
+        opacity: 0.15;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .chapter-four-page {
+        background:
+            radial-gradient(
+                circle at 50% 30%,
+                rgba(201,107,124,0.13),
+                transparent 38%
+            ),
+            linear-gradient(
+                200deg,
+                #38202a,
+                #0b0b0b
+            );
+    }
+
+
+    .chapter-four-page::before {
+        width: 300px;
+        height: 300px;
+
+        left: 50%;
+        top: 70%;
+
+        transform:
+            translate(-50%, -50%);
+    }
+
+
+    .chapter-four-page::after {
+        left: 50%;
+        top: 72%;
+
+        transform:
+            translate(-50%, -50%);
+
+        font-size:
+            clamp(160px, 48vw, 240px);
+    }
+
+
+    .chapter-four-page .chapter-four {
+        animation:
+            chapterFourMobileContent 1.2s ease forwards;
+    }
+
+}
+
+
+@keyframes chapterFourMobileContent {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+/* =========================================================
+   FINAL CHAPTER — GRAND ROMANTIC FINALE
+========================================================= */
+
+.final-chapter {
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(201,107,124,0.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(229,139,155,0.06),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #1b1116,
+            #0b0b0b 70%
+        );
+
+    animation:
+        finalChapterAppear 2s ease forwards;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.final-chapter > * {
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   BIG ROMANTIC GLOW
+========================================================= */
+
+.final-chapter::before {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201,107,124,0.18),
+            rgba(201,107,124,0.07) 32%,
+            transparent 70%
+        );
+
+    filter: blur(12px);
+
+    pointer-events: none;
+
+    animation:
+        finalGlow 7s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   GIANT HEART
+========================================================= */
+
+.final-chapter::after {
+    content: "♡";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    color:
+        rgba(229,139,155,0.07);
+
+    font-size:
+        clamp(300px, 45vw, 600px);
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 80px rgba(229,139,155,0.08);
+
+    animation:
+        finalHeart 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   FINAL CHAPTER NUMBER
+========================================================= */
+
+.final-chapter .chapter-number {
+    color: #d8a7b1;
+
+    letter-spacing: 6px;
+
+    font-size: 13px;
+
+    text-shadow:
+        0 0 18px rgba(229,139,155,0.20);
+
+    animation:
+        finalNumber 1.5s ease forwards;
+}
+
+
+/* =========================================================
+   FINAL HEADING
+========================================================= */
+
+.final-chapter h1 {
+    position: relative;
+
+    color: #fff;
+
+    text-shadow:
+        0 8px 35px rgba(0,0,0,0.55),
+        0 0 30px rgba(201,107,124,0.10);
+
+    animation:
+        finalTitle 1.8s ease forwards;
+}
+
+
+.final-chapter h1 span {
+    color: #e58b9b;
+
+    text-shadow:
+        0 0 25px rgba(229,139,155,0.30);
+}
+
+
+/* =========================================================
+   FINAL MESSAGE
+========================================================= */
+
+.final-chapter p {
+    position: relative;
+
+    max-width: 650px;
+
+    color: #d8d0d2;
+
+    line-height: 1.9;
+
+    text-shadow:
+        0 3px 15px rgba(0,0,0,0.40);
+
+    animation:
+        finalMessage 2.2s ease forwards;
+}
+
+
+/* =========================================================
+   FINAL BUTTON
+========================================================= */
+
+.final-chapter button {
+    position: relative;
+
+    z-index: 30;
+
+    margin-top: 25px;
+
+    box-shadow:
+        0 10px 35px rgba(201,107,124,0.18);
+
+    animation:
+        finalButton 2.6s ease forwards,
+        finalButtonGlow 3s ease-in-out 2.6s infinite;
+}
+
+
+.final-chapter button:hover {
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 14px 40px rgba(201,107,124,0.35);
+}
+
+
+/* =========================================================
+   CINEMATIC ENTRANCE
+========================================================= */
+
+@keyframes finalChapterAppear {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes finalNumber {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes finalTitle {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes finalMessage {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes finalButton {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   GLOW ANIMATION
+========================================================= */
+
+@keyframes finalGlow {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.90);
+
+        opacity: 0.65;
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.10);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.90);
+
+        opacity: 0.65;
+    }
+}
+
+
+/* =========================================================
+   HEART ANIMATION
+========================================================= */
+
+@keyframes finalHeart {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.96);
+
+        opacity: 0.55;
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.04);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.96);
+
+        opacity: 0.55;
+    }
+}
+
+
+/* =========================================================
+   BUTTON HEARTBEAT
+========================================================= */
+
+@keyframes finalButtonGlow {
+
+    0% {
+        box-shadow:
+            0 10px 35px rgba(201,107,124,0.18);
+    }
+
+    50% {
+        box-shadow:
+            0 10px 45px rgba(201,107,124,0.35);
+    }
+
+    100% {
+        box-shadow:
+            0 10px 35px rgba(201,107,124,0.18);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .final-chapter {
+        padding:
+            35px 22px 50px !important;
+    }
+
+
+    .final-chapter::before {
+        width: 330px;
+        height: 330px;
+    }
+
+
+    .final-chapter::after {
+        font-size:
+            clamp(260px, 75vw, 400px);
+    }
+
+
+    .final-chapter .chapter-number {
+        font-size: 11px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .final-chapter h1 {
+        font-size:
+            clamp(42px, 12vw, 70px);
+    }
+
+
+    .final-chapter p {
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+
+    .final-chapter button {
+        margin-top: 20px;
+    }
+
+}
