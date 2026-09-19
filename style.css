@@ -4338,3 +4338,115 @@ button:active {
     }
 
 }
+
+/* =========================================================
+   MUSIC BUTTON — TOP RIGHT
+========================================================= */
+
+#musicToggle {
+    position: fixed;
+
+    top: 22px;
+    right: 22px;
+
+    bottom: auto;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(201, 107, 124, 0.18);
+
+    border: 1px solid rgba(229, 139, 155, 0.45);
+
+    color: #e58b9b;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    z-index: 99999;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(201, 107, 124, 0.15);
+
+    backdrop-filter: blur(8px);
+
+    animation: musicButtonFloat 3s ease-in-out infinite;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#musicToggle:hover {
+    background: rgba(201, 107, 124, 0.4);
+
+    transform: scale(1.1);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(229, 139, 155, 0.25);
+}
+
+#musicToggle:active {
+    transform: scale(0.92);
+}
+
+#musicToggle.music-playing {
+    animation:
+        musicButtonFloat 3s ease-in-out infinite,
+        musicGlow 2s ease-in-out infinite;
+}
+
+@keyframes musicButtonFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes musicGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.35),
+            0 0 15px rgba(201, 107, 124, 0.15);
+    }
+
+    50% {
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.35),
+            0 0 30px rgba(229, 139, 155, 0.35);
+    }
+}
+
+@media (max-width: 600px) {
+
+    #musicToggle {
+        width: 44px;
+        height: 44px;
+
+        top: 16px;
+        right: 16px;
+
+        bottom: auto;
+
+        font-size: 18px;
+    }
+}

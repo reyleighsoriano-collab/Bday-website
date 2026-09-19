@@ -11,25 +11,68 @@
 
 <body>
 
-    <main>
+    <!-- =========================================
+         MAIN WEBSITE APP
+    ========================================== -->
 
-        <section class="hero">
-            <p class="small-text">A little something I made for you...</p>
+    <div id="app">
 
-            <h1>Happy Birthday,<br>My Mahal ❤️</h1>
+        <main>
 
-            <p class="subtitle">
-                11 years of memories, laughter, adventures,
-                and a whole lot of love.
-            </p>
+            <section class="hero">
 
-            <button onclick="openStory()">
-                Open Our Story ♡
-            </button>
-        </section>
+                <p class="small-text">
+                    A little something I made for you...
+                </p>
 
-    </main>
+                <h1>
+                    Happy Birthday,<br>
+                    My Mahal ❤️
+                </h1>
+
+                <p class="subtitle">
+                    11 years of memories, laughter, adventures,
+                    and a whole lot of love.
+                </p>
+
+                <button onclick="openStory()">
+                    Open Our Story ♡
+                </button>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================
+         BACKGROUND MUSIC
+    ========================================== -->
+
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="auto"
+    >
+        <source src="romantic-song.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- =========================================
+         MUSIC BUTTON
+    ========================================== -->
+
+    <button
+        id="musicToggle"
+        onclick="toggleMusic()"
+        aria-label="Toggle music"
+    >
+        🎵
+    </button>
+
 
     <script src="script.js"></script>
+
 </body>
 </html>

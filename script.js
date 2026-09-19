@@ -1,10 +1,71 @@
 // =========================================================
+// BACKGROUND MUSIC
+// =========================================================
+
+const backgroundMusic = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+let musicStarted = false;
+
+function startMusic() {
+
+    if (!backgroundMusic) return;
+
+    backgroundMusic.volume = 0.35;
+
+    backgroundMusic.play()
+        .then(() => {
+
+            musicStarted = true;
+
+            if (musicToggle) {
+                musicToggle.textContent = "🎵";
+                musicToggle.classList.add("music-playing");
+            }
+
+        })
+        .catch(() => {
+
+            console.log("Music waiting for user interaction.");
+
+        });
+}
+
+function toggleMusic() {
+
+    if (!backgroundMusic) return;
+
+    if (backgroundMusic.paused) {
+
+        backgroundMusic.play()
+            .then(() => {
+
+                musicStarted = true;
+
+                musicToggle.textContent = "🎵";
+                musicToggle.classList.add("music-playing");
+
+            });
+
+    } else {
+
+        backgroundMusic.pause();
+
+        musicToggle.textContent = "🔇";
+        musicToggle.classList.remove("music-playing");
+    }
+}
+
+
+
+
+// =========================================================
 // OPENING → 11 YEARS
 // =========================================================
 
 function openStory() {
-
-    document.body.innerHTML = `
+startMusic();
+    document.getElementById("app").innerHTML = `
         <main class="story-page">
             <div class="story-orbit"></div>
 
@@ -45,7 +106,7 @@ function openStory() {
 
 function chapter1() {
 
-    document.body.innerHTML = `
+    document.getElementById("app").innerHTML = `
         <main class="chapter-page">
 
             <div class="chapter-glow"></div>
@@ -113,7 +174,7 @@ function chapter2() {
 
     currentMemory = 0;
 
-    document.body.innerHTML = `
+    document.getElementById("app").innerHTML = `
         <main class="chapter-two-page">
 
             <div class="memory-glow"></div>
@@ -271,7 +332,7 @@ function startMemorySlideshow() {
 
 function chapter3() {
 
-    document.body.innerHTML = `
+    document.getElementById("app").innerHTML = `
         <main class="chapter-three-page">
 
             <div class="strength-glow"></div>
@@ -322,7 +383,7 @@ function chapter3() {
 
 function nextChapterFour() {
 
-    document.body.innerHTML = `
+    document.getElementById("app").innerHTML = `
         <main class="chapter-four-page">
 
             <div class="forever-glow"></div>
@@ -368,7 +429,7 @@ function nextChapterFour() {
 
 function finalChapter() {
 
-    document.body.innerHTML = `
+    document.getElementById("app").innerHTML = `
         <main class="final-page">
 
             <div class="final-glow"></div>
